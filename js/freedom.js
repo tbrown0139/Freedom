@@ -231,4 +231,122 @@ function initializeHeaderScroll() {
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializeSplashScreen();
+});
+
+// Rights details content and overlay handling
+const rightsDetails = {
+    'first': {
+        title: 'First Amendment Rights',
+        text: "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for redress of grievances.",
+        explanation: "The First Amendment protects several of our most fundamental liberties. It ensures religious freedom, free expression, press freedom, the right to peaceful assembly, and the ability to petition the government.",
+        howToProtect: [
+            "Stay informed about current legislation affecting First Amendment rights",
+            "Exercise your rights responsibly and regularly",
+            "Support organizations that defend First Amendment rights",
+            "Document and report violations of First Amendment rights",
+            "Engage in peaceful protests and assemblies",
+            "Practice and defend religious freedom",
+            "Support independent journalism"
+        ],
+        references: [
+            "U.S. Constitution, First Amendment (1791)",
+            "Supreme Court case: Brandenburg v. Ohio (1969)",
+            "Supreme Court case: Tinker v. Des Moines (1969)"
+        ]
+    },
+    'second': {
+        title: 'Second Amendment Rights',
+        text: "A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.",
+        explanation: "The Second Amendment protects the individual right to keep and bear arms, while also acknowledging the importance of well-regulated militias for state security.",
+        howToProtect: [
+            "Know and follow all federal and state firearms laws",
+            "Obtain proper training and licensing",
+            "Practice responsible gun ownership",
+            "Stay informed about legislation affecting gun rights",
+            "Support organizations that defend Second Amendment rights",
+            "Educate others about firearm safety and responsibility"
+        ],
+        references: [
+            "U.S. Constitution, Second Amendment (1791)",
+            "Supreme Court case: District of Columbia v. Heller (2008)",
+            "Supreme Court case: McDonald v. Chicago (2010)"
+        ]
+    },
+    'due-process': {
+        title: 'Due Process Rights',
+        text: "No person shall be... deprived of life, liberty, or property, without due process of law...",
+        explanation: "Due process rights ensure fair treatment under the law, including protection against unreasonable searches, self-incrimination, and the right to a fair trial.",
+        howToProtect: [
+            "Know your rights during police encounters",
+            "Understand search and seizure protections",
+            "Exercise your right to remain silent when appropriate",
+            "Seek legal counsel when needed",
+            "Document any violations of your rights",
+            "Support organizations that defend due process"
+        ],
+        references: [
+            "4th, 5th, and 6th Amendments",
+            "Supreme Court case: Miranda v. Arizona (1966)",
+            "Supreme Court case: Gideon v. Wainwright (1963)"
+        ]
+    },
+    'states': {
+        title: "States' Rights",
+        text: "The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.",
+        explanation: "The 10th Amendment establishes federalism by reserving powers not explicitly given to the federal government for the states or the people.",
+        howToProtect: [
+            "Participate in local and state government",
+            "Stay informed about state legislation",
+            "Vote in state and local elections",
+            "Support state sovereignty initiatives",
+            "Engage with state representatives",
+            "Understand federal vs. state jurisdiction"
+        ],
+        references: [
+            "U.S. Constitution, 10th Amendment (1791)",
+            "Supreme Court case: United States v. Lopez (1995)",
+            "Supreme Court case: Printz v. United States (1997)"
+        ]
+    }
+};
+
+function openRightDetails(rightId) {
+    const details = rightsDetails[rightId];
+    const content = `
+        <h2>${details.title}</h2>
+        <div class="amendment-text">
+            ${details.text}
+        </div>
+        <p>${details.explanation}</p>
+        
+        <div class="protection-steps">
+            <h4>How to Protect This Right:</h4>
+            <ul>
+                ${details.howToProtect.map(step => `<li>${step}</li>`).join('')}
+            </ul>
+        </div>
+        
+        <div class="references">
+            <h4>Key References:</h4>
+            <ul>
+                ${details.references.map(ref => `<li>${ref}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+    
+    document.getElementById('rightDetailsContent').innerHTML = content;
+    document.getElementById('rightDetailsOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeRightDetails() {
+    document.getElementById('rightDetailsOverlay').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close overlay when clicking outside content
+document.getElementById('rightDetailsOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeRightDetails();
+    }
 }); 

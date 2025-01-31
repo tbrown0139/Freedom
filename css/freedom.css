@@ -200,6 +200,8 @@ main.visible {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(191, 155, 48, 0.1);
+    cursor: pointer;
+    position: relative;
 }
 
 .vision-card:hover {
@@ -224,6 +226,21 @@ main.visible {
     color: var(--text-color);
     opacity: 0.8;
     line-height: 1.6;
+}
+
+.learn-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.vision-card:hover .learn-more {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Update Impact Section */
@@ -906,4 +923,148 @@ html {
     .stat-card {
         padding: 1.2rem;
     }
+}
+
+/* Education Section Styles */
+.freedom-education {
+    padding: 4rem 0;
+    background: var(--accent-color);
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.education-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+}
+
+.education-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.education-card p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.education-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.education-card ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #444;
+}
+
+.education-card ul li:before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Rights Details Overlay */
+.right-details-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.right-details-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.overlay-content {
+    background: white;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 3rem;
+    border-radius: 12px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close-overlay {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.close-overlay:hover {
+    transform: rotate(90deg);
+}
+
+.right-details-content {
+    margin-top: 1rem;
+}
+
+.amendment-text {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-left: 4px solid var(--primary-color);
+}
+
+.protection-steps {
+    margin-top: 2rem;
+}
+
+.protection-steps h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.protection-steps ul {
+    list-style: none;
+    padding: 0;
+}
+
+.protection-steps li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.protection-steps li:before {
+    content: "→";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
 } 
