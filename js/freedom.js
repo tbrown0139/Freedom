@@ -79,10 +79,10 @@ function initializeStatCounters() {
 
                     if (progress < 1) {
                         count = Math.floor(easeOutQuart(progress) * target);
-                        counter.textContent = count + '+';
+                        counter.textContent = count;
                         requestAnimationFrame(updateCount);
                     } else {
-                        counter.textContent = target + '+';
+                        counter.textContent = target;
                     }
                 }
 
@@ -113,20 +113,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Inspiring constitutional and freedom quotes
 const constitutionalQuotes = [
-    "We hold these truths to be self-evident, that all men are created equal...",
-    "Give me liberty, or give me death! - Patrick Henry",
-    "Freedom is never more than one generation away from extinction - Ronald Reagan",
-    "The tree of liberty must be refreshed from time to time - Thomas Jefferson",
-    "Liberty, when it begins to take root, is a plant of rapid growth - George Washington",
-    "Where liberty dwells, there is my country - Benjamin Franklin",
-    "Those who deny freedom to others deserve it not for themselves - Abraham Lincoln",
-    "Let freedom ring from every mountainside - Martin Luther King Jr.",
-    "America was built on courage, on imagination, and an unbeatable determination",
-    "The Constitution is the guide which I never will abandon - George Washington",
-    "Our Constitution was made only for a moral and religious people - John Adams",
-    "The advancement of liberty is the path to both security and prosperity",
-    "A Constitution of Government once changed from Freedom, can never be restored - John Adams",
-    "The price of freedom is eternal vigilance - Thomas Jefferson"
+    "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness.",
+    "The Constitution is the guide which I never will abandon.",
+    "Our Constitution was made only for a moral and religious people. It is wholly inadequate to the government of any other.",
+    "The tree of liberty must be refreshed from time to time with the blood of patriots and tyrants.",
+    "They who can give up essential liberty to obtain a little temporary safety deserve neither liberty nor safety.",
+    "Give me liberty, or give me death!",
+    "The Constitution is not an instrument for the government to restrain the people, it is an instrument for the people to restrain the government.",
+    "I consider trial by jury as the only anchor ever yet imagined by man, by which a government can be held to the principles of its constitution.",
+    "The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.",
+    "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech...",
+    "A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.",
+    "The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated...",
+    "No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury...",
+    "In all criminal prosecutions, the accused shall enjoy the right to a speedy and public trial..."
 ];
 
 function initializeSplashScreen() {
