@@ -4,41 +4,12 @@ function renderFooter() {
 
     footerContainer.innerHTML = `
         <footer class="main-footer">
-            <div class="footer-content">
-                <div class="footer-grid">
-                    <div class="footer-brand">
-                        <img src="images/Knovon_black.png" alt="Knovon" class="footer-logo">
-                        <p class="footer-description">Knovon is proudly American. We promote the U.S. Constitution, educate citizens on the Bill of Rights, and rally people to defend liberty against government overreach and foreign influence.</p>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Explore</h4>
-                        <ul>
-                            <li><a href="#mission">Our Mission</a></li>
-                            <li><a href="#rights">Your Rights</a></li>
-                            <li><a href="#education">Constitutional Education</a></li>
-                            <li><a href="#protect">Protect Liberty</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Founding Documents</h4>
-                        <ul>
-                            <li><a href="https://www.archives.gov/founding-docs/constitution" target="_blank" rel="noopener noreferrer">The Constitution</a></li>
-                            <li><a href="https://www.archives.gov/founding-docs/bill-of-rights" target="_blank" rel="noopener noreferrer">Bill of Rights</a></li>
-                            <li><a href="https://www.archives.gov/founding-docs/declaration" target="_blank" rel="noopener noreferrer">Declaration of Independence</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Get Involved</h4>
-                        <ul>
-                            <li><a href="#join">Take Action</a></li>
-                            <li><a href="https://constitutioncenter.org/" target="_blank" rel="noopener noreferrer">National Constitution Center</a></li>
-                            <li><a href="https://www.billofrightsinstitute.org/" target="_blank" rel="noopener noreferrer">Bill of Rights Institute</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; ${new Date().getFullYear()} Knovon. Defending the Constitution of the United States.</p>
-                </div>
+            <div class="footer-content" style="max-width:1200px;margin:0 auto;padding:2rem;text-align:center;">
+                <img src="images/Knovon_black.png" alt="Knovon" height="36" style="margin-bottom:1rem;">
+                <p style="color:#555;line-height:1.6;max-width:600px;margin:0 auto 1rem;">
+                    Defend the Constitution. Protect the Bill of Rights. Educate yourself — because government counts on your ignorance.
+                </p>
+                <p style="color:#999;font-size:0.9rem;">&copy; ${new Date().getFullYear()} Knovon</p>
             </div>
         </footer>
     `;
