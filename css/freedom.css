@@ -54,7 +54,7 @@ main.visible {
 
 /* Update section paddings */
 .freedom-hero {
-    min-height: calc(100vh - var(--header-height));
+    min-height: 100vh;
     height: auto;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/flag-main.jpg') center/cover no-repeat fixed;
     position: relative;
@@ -62,9 +62,10 @@ main.visible {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6rem 0 4rem;
+    padding: 7rem 0 4rem;
     color: var(--white);
     will-change: transform;
+    box-sizing: border-box;
 }
 
 .hero-particles {
@@ -661,11 +662,283 @@ html {
     padding: 1rem 2rem;
     background: rgba(60, 59, 110, 0.95);
     backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#header-container.scrolled {
+    background: rgba(60, 59, 110, 0.98);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
 }
 
 .header-logo {
     display: block;
     width: fit-content;
+    flex-shrink: 0;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-shrink: 0;
+}
+
+.header-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    white-space: nowrap;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.header-nav a:hover {
+    opacity: 1;
+    color: var(--gold-color);
+}
+
+.hero-eyebrow {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-color);
+    margin-bottom: 1.25rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Mission Section — matches impact-section rhythm */
+.mission-section {
+    padding: 8rem 0;
+    background: var(--light-bg);
+    position: relative;
+}
+
+.mission-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../images/flag2.jpg') center/cover no-repeat;
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.mission-grid {
+    position: relative;
+    z-index: 1;
+}
+
+.mission-stats {
+    grid-template-columns: 1fr;
+}
+
+/* Education Section — match vision-card polish */
+.freedom-education {
+    padding: 8rem 0;
+    background: var(--white);
+    position: relative;
+}
+
+.freedom-education::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../images/flag3.jpg') center/cover no-repeat;
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.education-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(191, 155, 48, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.education-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1),
+                opacity 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.education-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--gold-color);
+}
+
+.education-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+    display: block;
+}
+
+.education-card h3 {
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.education-card p {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.education-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.education-card ul li {
+    padding: 0.4rem 0 0.4rem 1.25rem;
+    position: relative;
+    color: var(--text-color);
+    opacity: 0.85;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.education-card ul li:before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.education-card a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.education-card a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Protect Section — white cards, not dark panel */
+.protect-section {
+    padding: 8rem 0;
+    background: var(--light-bg);
+    position: relative;
+}
+
+.protect-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../images/gov2.jpg') center/cover no-repeat;
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.protect-section .section-header {
+    position: relative;
+    z-index: 1;
+}
+
+.protect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.protect-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(191, 155, 48, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.protect-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1),
+                opacity 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.protect-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--gold-color);
+}
+
+.protect-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.protect-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.protect-card p {
+    line-height: 1.7;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 1rem;
+    margin: 0;
+    text-align: left;
+}
+
+/* Dual quotes */
+.quote-primary {
+    margin-bottom: 0;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.quote-secondary {
+    margin-top: 3rem;
+    margin-bottom: 0;
+}
+
+.quote-secondary p {
+    font-size: 1.35rem !important;
+    opacity: 0.85;
+}
+
+.quote-secondary cite {
+    font-size: 1rem !important;
 }
 
 .nav-menu {
@@ -678,7 +951,7 @@ html {
 }
 
 /* Enhanced Interactivity */
-.vision-card, .stat-card, .join-card {
+.vision-card, .stat-card, .join-card, .education-card, .protect-card {
     transform: translateY(0);
     opacity: 0;
     transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1),
@@ -688,7 +961,9 @@ html {
 
 .vision-card.visible,
 .stat-card.visible,
-.join-card.visible {
+.join-card.visible,
+.education-card.visible,
+.protect-card.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -775,6 +1050,18 @@ html {
         padding: 0;
     }
 
+    .mission-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .protect-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
     .vision-grid,
     .join-options {
         padding: 0 2rem;
@@ -837,11 +1124,6 @@ html {
 
     #header-container {
         padding: 1rem;
-        text-align: center;
-    }
-
-    .header-logo {
-        margin: 0 auto;
     }
 
     .quote-display {
@@ -923,73 +1205,33 @@ html {
     .stat-card {
         padding: 1.2rem;
     }
-}
 
-/* Education Section Styles */
-.freedom-education {
-    padding: 4rem 0;
-    background: var(--accent-color);
-}
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
 
-.education-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
+    .protect-grid {
+        grid-template-columns: 1fr;
+    }
 
-.education-card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
+    #header-container {
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
 
-.education-card:hover {
-    transform: translateY(-5px);
-}
+    .header-nav {
+        gap: 0.75rem;
+        overflow-x: auto;
+        max-width: 100%;
+        padding-bottom: 0.15rem;
+        -webkit-overflow-scrolling: touch;
+    }
 
-.education-card h3 {
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.education-card p {
-    margin-bottom: 1rem;
-    color: #555;
-}
-
-.education-card ul {
-    list-style: none;
-    padding: 0;
-}
-
-.education-card ul li {
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    color: #444;
-}
-
-.education-card ul li:before {
-    content: "•";
-    color: var(--primary-color);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-}
-
-.education-card a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.education-card a:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
+    .header-nav a {
+        font-size: 0.75rem;
+    }
 }
 
 /* Rights Details Overlay */

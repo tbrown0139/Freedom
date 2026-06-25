@@ -2,7 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeSplashScreen();
     initializeRightCards();
     initializeOverlay();
+    initializeHeaderScroll();
 });
+
+function initializeHeaderScroll() {
+    const header = document.getElementById('header-container');
+    if (!header) return;
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.pageYOffset > 50);
+    });
+}
 
 function initializeParticles() {
     const particlesContainer = document.querySelector('.hero-particles');
@@ -26,7 +35,9 @@ function initializeScrollAnimations() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 if (entry.target.parentElement.classList.contains('vision-grid') ||
-                    entry.target.parentElement.classList.contains('join-options')) {
+                    entry.target.parentElement.classList.contains('join-options') ||
+                    entry.target.parentElement.classList.contains('education-grid') ||
+                    entry.target.parentElement.classList.contains('protect-grid')) {
                     const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
                     entry.target.style.transitionDelay = `${index * 0.1}s`;
                 }
@@ -35,7 +46,9 @@ function initializeScrollAnimations() {
         });
     }, { threshold: 0.15, rootMargin: '0px 0px -100px 0px' });
 
-    document.querySelectorAll('.vision-card, .impact-content, .impact-stats, .stat-card, .join-card').forEach(el => {
+    document.querySelectorAll(
+        '.vision-card, .impact-content, .impact-stats, .stat-card, .join-card, .education-card, .protect-card, .mission-content'
+    ).forEach(el => {
         observer.observe(el);
     });
 }
